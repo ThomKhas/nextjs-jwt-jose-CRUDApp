@@ -1,0 +1,13 @@
+body {
+	background: #202020;
+	color: white;
+}
+
+.custom-h1 {
+	margin: 10px;
+  }
+
+.custom-h3 {
+	margin-top: 10px;
+	margin-bottom: 0px;
+  }
