@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import { useRouter } from "next/navigation";
 
-function empPage() {
+function EmpPage() {
   const [user, setUser] = useState({
     id: "",
     rut: "",
@@ -47,4 +47,4 @@ function empPage() {
   );
 }
 
-export default empPage;
+export default EmpPage;

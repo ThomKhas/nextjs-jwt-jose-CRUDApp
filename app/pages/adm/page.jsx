@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import { useRouter } from "next/navigation";
 
-function admPage() {
+function AdmPage() {
   const [user, setUser] = useState({
     rut: "",
     rol_id: "",
@@ -51,4 +51,4 @@ function admPage() {
   );
 }
 
-export default admPage;
+export default AdmPage;
