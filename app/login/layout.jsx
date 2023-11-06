@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
 function Layout({ children }) {

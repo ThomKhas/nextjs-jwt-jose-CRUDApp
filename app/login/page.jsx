@@ -2,6 +2,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import 'bootstrap/dist/css/bootstrap.css';
+import Image from 'next/image';
+import Link from 'next/link';
 
 function LoginPage() {
   const [credentials, setCredentials] = useState({
@@ -37,31 +40,62 @@ function LoginPage() {
 
   return (
     <div>
+      <nav className="navbar bg-body-tertiary">
+        <div className="container-fluid">
+        <Link href="/">
+        <Image className="img-fluid" 
+        src="/src/minilogo.png"
+        alt="logo para btn"
+        width={190}
+        height={130}/>
+        </Link>
+        <button className="btn btn-primary" type="submit" style={{ visibility: 'hidden', pointerEvents: 'none' }}>Ingresar</button>
+        </div>
+      </nav>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#999999',
+    }}>
+      
+
+    <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', textAlign: 'center' }}>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="RUT"
-          onChange={(e) =>
-            setCredentials({
-              ...credentials,
-              rut: e.target.value,
-            })
-          }
-        />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={(e) =>
-            setCredentials({
-              ...credentials,
-              password: e.target.value,
-            })
-          }
-        />
-        <button>Ingresar</button>
+      <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"  style={{ color: 'black' }}>RUT</label>
+              <input class="form-control"
+                type="text"
+                placeholder="11111111-1"
+                onChange={(e) =>
+                  setCredentials({
+                    ...credentials,
+                    rut: e.target.value,
+                  })
+                }
+              />
+      </div>     
+      <div class="mb-3">  
+      <label for="exampleInputPassword1" class="form-label"  style={{ color: 'black' }}>Contraseña</label>
+            <input class="form-control"
+              type="password"
+              placeholder="********"
+              onChange={(e) =>
+                setCredentials({
+                  ...credentials,
+                  password: e.target.value,
+                })
+              }
+            />
+        </div> 
+        <button className="btn btn-primary">Ingresar</button>
       </form>
+    </div>
+    </div>
     </div>
   );
 }
 
 export default LoginPage;
+
