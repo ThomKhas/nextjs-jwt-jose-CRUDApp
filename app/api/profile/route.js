@@ -15,7 +15,7 @@ export async function GET(request) {
 
   let { data: user, error } = await supabase
     .from('data_users')
-    .select('id')
+    .select('id, full_name')
     .eq('rut', rut)
     .single();
 
@@ -26,6 +26,7 @@ export async function GET(request) {
 
   return NextResponse.json({
     id: user.id, // Devuelve la ID del usuario
+    full_name: user.full_name, // Devuelve el nombre del usuario
     rut,
     rol_id,
   });

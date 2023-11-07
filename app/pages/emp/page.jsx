@@ -2,6 +2,8 @@
 import axios from "axios";
 import { useEffect,useState } from "react";
 import { useRouter } from "next/navigation";
+import 'bootstrap/dist/css/bootstrap.css';
+import Image from 'next/image';
 
 function EmpPage() {
   const [user, setUser] = useState({
@@ -36,14 +38,31 @@ function EmpPage() {
   };
 
   return (
-    <div>
-      <h1>PERFIL DE EMPLEADOS</h1>
-      <p>ID: {user.id}</p>
-      <p>RUT: {user.rut}</p>
-      <p>Rol ID: {user.rol_id}</p>
-      <button onClick={goToViewPage}>Editar Perfil</button>
-      <button onClick={() => logout()}>Logout</button>
-    </div>
+      <div>
+      <nav className="navbar bg-body-tertiary">
+        <div className="container-fluid">
+        <Image className="img-fluid" 
+        src="/src/minilogo.png"
+        alt="logo para btn"
+        width={190}
+        height={130}/>
+            <button className="btn btn-primary" type="submit" onClick={() => logout()}>Salir</button>
+        </div>
+      </nav>
+      <div style={{ height: '94vh', backgroundColor: '#DBD7D7'}}>
+
+      <h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black' }}>PERFIL DE ADMINISTRADOR</h1>
+
+      <h4 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black', textAlign: 'left', }}>Bienvenido, {user.full_name}<br/> Porfavor seleccione una de las opciones para continuar.</h4>
+
+      <h2 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left', marginLeft: '50px', color: 'black' }}>Opciones</h2>
+
+      <div style={{ display: 'flex', justifyContent: 'left', marginTop: '10px', marginLeft: '50px' }}>
+        <button className="btn btn-success" onClick={goToViewPage}>Ver usuarios</button>
+      </div>
+
+      </div>
+      </div>
   );
 }
 
