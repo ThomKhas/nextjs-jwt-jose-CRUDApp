@@ -51,7 +51,7 @@ function EmpPage() {
       </nav>
       <div style={{ height: '94vh', backgroundColor: '#DBD7D7'}}>
 
-      <h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black' }}>PERFIL DE ADMINISTRADOR</h1>
+      <h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black' }}>PERFIL DE EMPLEADO</h1>
 
       <h4 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black', textAlign: 'left', }}>Bienvenido, {user.full_name}<br/> Porfavor seleccione una de las opciones para continuar.</h4>
 
