@@ -63,8 +63,8 @@ function EmpPage() {
         <div className="row">
           <div className="col-lg-6" style={{ backgroundColor: '#DBD7D7', padding: '50px' }}>
             <div style={{ textAlign: 'left', marginLeft: '250px' }}>
-              <h1 style={{ textAlign: 'left', marginTop: '200px' }}>PERFIL DE EMPLEADO</h1>
-              <h4 style={{ textAlign: 'left' }}>
+              <h1 style={{ textAlign: 'left', marginTop: '200px', color: 'black' }}>PERFIL DE EMPLEADO</h1>
+              <h4 style={{ textAlign: 'left', color: 'black' }}>
                 Bienvenido, {user.full_name}
                 <br /> Por favor seleccione una de las opciones para continuar.
               </h4>
