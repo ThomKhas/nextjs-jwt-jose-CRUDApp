@@ -68,7 +68,7 @@ function EmpPage() {
                 Bienvenido, {user.full_name}
                 <br /> Por favor seleccione una de las opciones para continuar.
               </h4>
-              <h2 style={{ textAlign: 'left', marginTop: '70px'}}>Opciones</h2>
+              <h2 style={{ textAlign: 'left', marginTop: '70px', color: 'black'}}>Opciones</h2>
               <div style={{ marginTop: '10px' }}>
                 <button className="btn btn-success" onClick={goToViewPage}>
                   Ver Perfil
