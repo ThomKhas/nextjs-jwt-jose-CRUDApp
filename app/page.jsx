@@ -12,7 +12,6 @@ function HomePage() {
   };
   return (
     <div>
-      <h1>HELLO WORLD</h1>
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid">
         <Image className="img-fluid" 
