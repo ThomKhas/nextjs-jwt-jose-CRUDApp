@@ -118,7 +118,7 @@ function DataListPage() {
     <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
     <Navbar logout={logout} /> 
     <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleRedirecttoADMIN}>Volver</button><br/>  
-    <h2 style={{ margin: '11px' }}>Filtros</h2>
+    <h2 style={{ margin: '11px', color: 'black' }}>Filtros</h2>
       <div style={{ display: 'flex', gap: '10px',margin: '11px' }}>
       <select className="form-select" value={filters.sex} onChange={(e) => handleFilterChange('sex', e.target.value)} style={{ width: '180px' }}>
         <option value="">- Seleccione sexo -</option>
@@ -141,7 +141,7 @@ function DataListPage() {
       <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleSearch}>Buscar</button>
 
     {successMessage && <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: 'green', padding: 10, borderRadius: 5, color: 'white' }}>{successMessage}</div>}
-    <h1 style={{ margin: '11px' }}>Lista de Usuarios</h1>
+    <h1 style={{ margin: '11px', color: 'black' }}>Lista de Usuarios</h1>
 
     <table style={{ margin: '11px', textAlign: 'center' }} className="table">
       <thead>

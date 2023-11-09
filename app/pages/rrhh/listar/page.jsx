@@ -82,7 +82,7 @@ function DataListPage() {
     <Navbar logout={logout} />   
     <button className="btn btn-primary" onClick={handleRedirecttoRRHH} style={{ margin: '11px' }}>Volver</button> 
     {successMessage && <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: 'green', padding: 10, borderRadius: 5, color: 'white' }}>{successMessage}</div>}
-    <h1 style={{ margin: '11px' }}>Lista de Usuarios</h1>
+    <h1 style={{ margin: '11px', color: 'black' }}>Lista de Usuarios</h1>
 
     <table style={{ margin: '11px', textAlign: 'center' }} className="table">
       <thead>
