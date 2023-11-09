@@ -5,6 +5,25 @@ import { useRouter } from "next/navigation";
 import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image';
 
+function Navbar({ logout }) {
+  return (
+    <nav className="navbar bg-body-tertiary">
+      <div className="container-fluid">
+        <img
+          className="img-fluid"
+          src="/src/minilogo.png"
+          alt="logo para btn"
+          width={190}
+          height={130}
+        />
+        <button className="btn btn-primary" type="submit" onClick={logout}>
+          Salir
+        </button>
+      </div>
+    </nav>
+  );
+}
+
 function AdmPage() {
   const [user, setUser] = useState({
     rut: "",
@@ -43,31 +62,40 @@ function AdmPage() {
 
 
   return (
-    <div>
-      <nav className="navbar bg-body-tertiary">
-        <div className="container-fluid">
-        <Image className="img-fluid" 
-        src="/src/minilogo.png"
-        alt="logo para btn"
-        width={190}
-        height={130}/>
-            <button className="btn btn-primary" type="submit" onClick={() => logout()}>Salir</button>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
+    <Navbar logout={logout} />
+    <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-6" style={{ backgroundColor: '#DBD7D7', padding: '50px' }}>
+            <div style={{ textAlign: 'left', marginLeft: '250px' }}>
+              <h1 style={{ textAlign: 'left', marginTop: '200px', color: 'black' }}>PERFIL DE ADMINISTRADOR</h1>
+              <h4 style={{ textAlign: 'left', color: 'black' }}>
+                Bienvenido, {user.full_name}
+                <br /> Por favor seleccione una de las opciones para continuar.
+              </h4>
+              <h2 style={{ textAlign: 'left', marginTop: '70px', color: 'black'}}>Opciones</h2>
+              <div style={{ marginTop: '10px' }}>
+                <button className="btn btn-success" onClick={goToViewPage} style= {{marginRight: '10px'}}>
+                  Ver Usuarios
+                </button>
+                <button className="btn btn-success" onClick={goToCreatePage}>
+                  Crear Usuario
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6" style={{ backgroundColor: '#DBD7D7', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ marginTop: '120px', marginRight: '190px' }}>
+              <Image
+                src="/src/logoPage.png"
+                alt="Ejemplo de imagen"
+                width={940}
+                height={505}
+              />
+            </div>
+          </div>
         </div>
-      </nav>
-    <div style={{ height: '94vh', backgroundColor: '#DBD7D7'}}>
-      
-      <h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black' }}>PERFIL DE ADMINISTRADOR</h1>
-      
-      <h4 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left',marginLeft: '50px', color: 'black', textAlign: 'left', }}>Bienvenido, {user.full_name}<br/> Porfavor seleccione una de las opciones para continuar.</h4>
-
-      <h2 style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'left', marginLeft: '50px', color: 'black' }}>Opciones</h2>
-
-      <div style={{ display: 'flex', justifyContent: 'left', marginTop: '10px', marginLeft: '50px' }}>
-        <button style={{ marginRight: '10px' }} className="btn btn-success" onClick={goToCreatePage}>Crear nuevo usuario</button>
-        <button className="btn btn-success" onClick={goToViewPage}>Ver usuarios</button>
       </div>
-      
-    </div>
     </div>
   );
 }

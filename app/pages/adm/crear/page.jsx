@@ -5,9 +5,28 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';;
 import React from 'react';
 import { Button } from 'antd';
 import "../../../globals.css";
+import 'bootstrap/dist/css/bootstrap.css';
 
 import { insertData } from '../../../api/insert/route' // api rest
 
+function Navbar({ logout }) {
+  return (
+    <nav className="navbar bg-body-tertiary">
+      <div className="container-fluid">
+        <img
+          className="img-fluid"
+          src="/src/minilogo.png"
+          alt="logo para btn"
+          width={190}
+          height={130}
+        />
+        <button className="btn btn-primary" type="submit" onClick={logout}>
+          Salir
+        </button>
+      </div>
+    </nav>
+  );
+}
 
 function CreatePage() {
   const [form, setForm] = useState({
@@ -149,128 +168,154 @@ function CreatePage() {
     return () => clearInterval(interval);
   }, []);
 
+  const logout = async () => {
+    try {
+      const res = await axios.get("/api/auth/logout");
+      console.log(res);
+    } catch (error) {
+      console.error(error.message);
+    }
+    router.push("/login");
 
+  };
 
   return (
     <div>
-    <button type="button" onClick={handleRedirect}>Volver</button>
-    <form onSubmit={handleSubmit}>
-      <h1 className='custom-h1'>Crear nuevo usuario</h1>
-      
-      <h3 className='custom-h3'>Datos Personales</h3><br />
-      <label>
-        Nombre completo:
-        <input type="text" name="full_name" value={form.full_name} onChange={handleChange} />
-      </label><br />
-      <label>
-          RUT:
-          <input type="text" name="rut" value={form.rut} placeholder='RUT sin puntos, con guión' onChange={handleChange} />
-          {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
-        </label><br />
-      <label>
-          Contraseña:
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-          />
-          <button type="button" onClick={togglePasswordVisibility} style={{ border: 'none', background: 'none' }}>
-            {showPassword ? <EyeInvisibleOutlined /> : <EyeOutlined />}
-          </button>
-        </label><br />
-      <label>
-        Sexo:
-        <select name="sex" value={form.sex} onChange={handleChange}>
-        <option value="">Selecciona</option>  
-        <option value="M">M</option>
-        <option value="F">F</option>
-      </select>
-      </label><br />
-      <label>
-        Dirección:
-        <input type="text" name="address" value={form.address} onChange={handleChange} />
-      </label><br />
-      <label>
-        Teléfono:
-        <input type="text" name="phone" value={form.phone} onChange={handleChange} />
-      </label><br />
-      <h3 className='custom-h3'>Datos Laborales</h3><br />
-      <label>
-        Empleo:
-        <input type="text" name="empleo" value={form.empleo} onChange={handleChange} />
-      </label><br />
-      <label>
-      Fecha de ingreso:
-      <input type="text" name="fecha_in" value={form.fecha_in} onChange={handleChange} />
-        <Button type="text" onClick={handleRefreshDateTime} style={{ border: 'none', background: 'none' }}></Button>
-      </label><br />
-      <label>
-        Área:
-        <select name="area" value={form.area} onChange={handleChange}>
-          <option value="">Selecciona</option>
-          <option value="Bodega">Bodega</option>
-          <option value="Administracion">Administracion</option>
-          <option value="Marketing">Marketing</option>
-        </select>
-      </label><br />
-      <label>
-        Rol:
-        <select name="rol_id" value={form.rol_id} onChange={handleChange}>
-          <option value="">Selecciona</option>
-          <option value={1}>Admin</option>
-          <option value={2}>RRHH</option>
-          <option value={3}>Empleado</option>
-        </select>
-      </label><br />
-      <h3 className='custom-h3'>Datos de Contactos</h3><br />
-      <label>
-        Nombre de contacto de emergencia:
-        <input type="text" name="nom_sos" value={form.nom_sos} onChange={handleChange} />
-      </label><br />
-      <label>
-        Teléfono de contacto de emergencia:
-        <input type="text" name="phone_sos" value={form.phone_sos} onChange={handleChange} />
-      </label><br />
-      <label>
-        Relación con el contacto de emergencia:
-        <input type="text" name="relation_sos" value={form.relation_sos} onChange={handleChange} />
-      </label><br />
+    <Navbar logout={logout} />
+    <button style={{ margin: '11px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
+    
+            <h1 className='custom-h1'>Crear nuevo usuario</h1>
+                
+                <form onSubmit={handleSubmit}>
+                    <div class='container'>
+                      <div class='row align-items-start'>
 
-      <h3 className='custom-h3'>Datos de Cargas</h3><br />
-      <label>
-        Nombre de la Carga:
-        <input type="text" name="nom_carga" value={form.nom_carga} onChange={handleChange} />
-      </label><br />
-      <label>
-        Parentesco:
-        <input type="text" name="relation_carga" value={form.relation_carga} onChange={handleChange} />
-      </label><br />
-      <label>
-        Sexo de la Carga:
-        <select name="sex_carga" value={form.sex_carga} onChange={handleChange}>
-        <option value="">Selecciona</option>
-        <option value="M">M</option>
-        <option value="F">F</option>
-      </select>
-      </label><br />
-      <label>
-          RUT de la Carga:
-          <input
-            type="text"
-            name="rut_carga"
-            placeholder='RUT sin puntos, con guión'
-            value={form.rut_carga}
-            onChange={handleChange0}
-          />
-          {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
-        </label><br />
+                        <div class="col-3">
+                          <h3 className='custom-h3'>Datos Personales</h3><br />
+                          <label className="form-label">
+                            Nombre completo:
+                            <input className="form-control" type="text" name="full_name" value={form.full_name} onChange={handleChange} />
+                          </label><br />
+                          <label className="form-label">
+                              RUT:
+                              <input className="form-control" type="text" name="rut" value={form.rut} placeholder='RUT sin puntos, con guión' onChange={handleChange} />
+                              {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
+                          </label><br />
+                          <label className="form-label" >
+                              Contraseña:
+                              <div style={{ display: 'flex', alignItems: 'center' }}>
+                                  <input className="form-control"
+                                    type={showPassword ? 'text' : 'password'}
+                                    name="password"
+                                    value={form.password}
+                                    onChange={handleChange}
+                                  />
+                                  <button type="button" onClick={togglePasswordVisibility} style={{ border: 'none', background: 'none' }}>
+                                    {showPassword ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+                                  </button>
+                              </div>
+                          </label><br />
+                          <label className="form-label">
+                            Sexo:
+                            <select class="form-select" name="sex" value={form.sex} onChange={handleChange}>
+                              <option value="">Selecciona</option>
+                              <option value="M">M</option>
+                              <option value="F">F</option>
+                          </select>
+                          </label><br />
+                          <label className="form-label">
+                            Dirección:
+                            <input className="form-control" type="text" name="address" value={form.address} onChange={handleChange} />
+                          </label><br />
+                          <label className="form-label">
+                            Teléfono:
+                            <input className="form-control" type="text" name="phone" value={form.phone} onChange={handleChange} />
+                          </label>
+                        </div>
+                        <div class="col-3">
+                          <h3 className='custom-h3'>Datos Laborales</h3><br />
+                          <label className="form-label">
+                            Empleo:
+                            <input className="form-control" type="text" name="empleo" value={form.empleo} onChange={handleChange} />
+                          </label><br />
+                          <label className="form-label">
+                          Fecha de ingreso:
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                              <input className="form-control" type="text" name="fecha_in" value={form.fecha_in} onChange={handleChange} />
+                              <Button type="text" onClick={handleRefreshDateTime} style={{ border: 'none', background: 'none' }}></Button>
+                            </div>
+                          </label><br />
+                          <label className="form-label">
+                            Área:
+                            <select class="form-select" name="area" value={form.area} onChange={handleChange}>
+                              <option value="">Selecciona</option>
+                              <option value="Bodega">Bodega</option>
+                              <option value="Administracion">Administracion</option>
+                              <option value="Marketing">Marketing</option>
+                            </select>
+                          </label><br />
+                          <label className="form-label">
+                            Rol:
+                            <select class="form-select" name="rol_id" value={form.rol_id} onChange={handleChange}>
+                              <option value="">Selecciona</option>
+                              <option value={1}>Admin</option>
+                              <option value={2}>RRHH</option>
+                              <option value={3}>Empleado</option>
+                            </select>
+                          </label><br />
+                        </div>
+                        <div class="col-3">
+                        <h3 className='custom-h3'>Datos de Contactos</h3><br />
+                        <label className="form-label">
+                          Nombre de contacto de emergencia:
+                          <input className="form-control" type="text" name="nom_sos" value={form.nom_sos} onChange={handleChange} />
+                        </label><br />
+                        <label className="form-label">
+                          Teléfono de contacto de emergencia:
+                          <input className="form-control" type="text" name="phone_sos" value={form.phone_sos} onChange={handleChange} />
+                        </label><br />
+                        <label className="form-label">
+                          Relación con el contacto de emergencia:
+                          <input className="form-control" type="text" name="relation_sos" value={form.relation_sos} onChange={handleChange} />
+                        </label>
+                        </div><br />
 
+                        <div class="col-3">
+                          <h3 className='custom-h3'>Datos de Cargas</h3><br />
+                          <label className="form-label">
+                            Nombre de la Carga:
+                            <input className="form-control" type="text" name="nom_carga" value={form.nom_carga} onChange={handleChange} />
+                          </label><br />
+                          <label className="form-label">
+                            Parentesco:
+                            <input className="form-control" type="text" name="relation_carga" value={form.relation_carga} onChange={handleChange} />
+                          </label><br />
+                          <label className="form-label">
+                            Sexo de la Carga:
+                            <select class="form-select" name="sex_carga" value={form.sex_carga} onChange={handleChange}>
+                            <option value="">Selecciona</option>
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                          </select>
+                          </label><br />
+                          <label className="form-label">
+                              RUT de la Carga:
+                              <input className="form-control"
+                                type="text"
+                                name="rut_carga"
+                                placeholder='RUT sin puntos, con guión'
+                                value={form.rut_carga}
+                                onChange={handleChange0}
+                              />
+                              {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
+                          </label><br />
+                          <button style={{ marginTop:'40px' }} className="btn btn-primary btn-lg">Registrar</button>
+                        </div>
+                    </div>
+                  </div>
+                </form>
+                {message && <p>{message}</p>}
       
-      <button type="submit">REGISTRAR</button>
-      
-    </form>
-    {message && <p>{message}</p>}
     </div>
   );
 }

@@ -7,11 +7,38 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { selectData } from '../../../api/select/route_id'; // api rest
 import { updateData } from '../../../api/edit/route'; // api rest
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 const queryClient = new QueryClient();
+
+function Navbar({ logout }) {
+  return (
+    <nav className="navbar bg-body-tertiary">
+      <div className="container-fluid">
+        <img
+          className="img-fluid"
+          src="/src/minilogo.png"
+          alt="logo para btn"
+          width={190}
+          height={130}
+        />
+        <button className="btn btn-primary" type="submit" onClick={logout}>
+          Salir
+        </button>
+      </div>
+    </nav>
+  );
+}
 
 function EditFormPage() {
   const router = useRouter();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    full_name: '',
+    rut: '',
+    sex: '',
+    address: '',
+    rol_id: '',
+  });
   const [successMessage, setSuccessMessage] = useState(''); // Estado para almacenar el mensaje de éxito
   const [rutError, setRutError] = useState('');
   let id;
@@ -33,6 +60,8 @@ function EditFormPage() {
       }
     }
   }, []);
+
+  
 
   const handleChange = (e) => {
     setFormData((oldData) => ({
@@ -88,45 +117,60 @@ function EditFormPage() {
     router.push('/pages/rrhh/listar');
   };
 
+  const logout = async () => {
+    try {
+      const res = await axios.get("/api/auth/logout");
+      console.log(res);
+    } catch (error) {
+      console.error(error.message);
+    }
+    router.push("/login");
+
+  };
+
   return (
     <div>
-      <button type="button" onClick={handleRedirect}>Volver</button>
-      <form>
-        <label>
-          Nombre completo:
-          <input type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          RUT:
-          <input type="text" name="rut" placeholder='RUT sin puntos, con guión' value={formData.rut} onChange={handleChange0} />
-        </label>
-        {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
-        <label>
-        Sexo:
-        <select name="sex" value={formData.sex || ''} onChange={handleChange}>
-        <option value="">Selecciona</option>  
-        <option value="M">M</option>
-        <option value="F">F</option>
-      </select>
-      </label>
-        <br />
-        <label>
-          Dirección:
-          <input type="text" name="address" value={formData.address || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-        Rol:
-        <select name="rol_id" value={formData.rol_id || ''} onChange={handleChange}>
-          <option value="">Selecciona</option>
-          <option value={1}>Admin</option>
-          <option value={2}>RRHH</option>
-          <option value={3}>Empleado</option>
-        </select>
-        </label><br />
-        <button type="button" onClick={handleUpdate}>Guardar</button>
-      </form>
+      <Navbar logout={logout} />
+      <div style={{margin: '20px'}}>
+        <button className="btn btn-primary" onClick={handleRedirect}>Volver</button>
+        <h1 style={{margin:'20px'}}>Editar Usuario</h1>
+        <form style={{marginLeft:'20px'}}>
+          <label className="form-label">
+              Nombre completo:
+              <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
+            </label>
+            <br />
+          <label className="form-label">
+              RUT:
+              <input className="form-control" type="text" name="rut" placeholder='RUT sin puntos, con guión' value={formData.rut} onChange={handleChange0} />
+          </label>
+            {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
+          <label className="form-label">
+            Sexo:
+            <select className="form-select" name="sex" value={formData.sex || ''} onChange={handleChange}>
+            <option value="">Selecciona</option>  
+            <option value="M">M</option>
+            <option value="F">F</option>
+          </select>
+          </label>
+            <br />
+          <label className="form-label">
+            Dirección:
+            <input className="form-control" type="text" name="address" value={formData.address || ''} onChange={handleChange} />
+          </label>
+            <br />
+          <label className="form-label">
+            Rol:
+            <select className="form-select" name="rol_id" value={formData.rol_id || ''} onChange={handleChange}>
+              <option value="">Selecciona</option>
+              <option value={1}>Admin</option>
+              <option value={2}>RRHH</option>
+              <option value={3}>Empleado</option>
+            </select>
+          </label><br />
+          <button style={{marginTop:'20px'}} type="button" className="btn btn-primary" onClick={handleUpdate}>Guardar</button>
+        </form>
+      </div>
     </div>
   );
   
