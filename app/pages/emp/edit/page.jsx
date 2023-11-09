@@ -88,7 +88,7 @@ function EditFormPage() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
       <button type="button" onClick={handleRedirect}>Volver</button>
       <form>
         <label>

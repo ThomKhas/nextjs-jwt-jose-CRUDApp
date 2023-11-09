@@ -180,7 +180,7 @@ function CreatePage() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
     <Navbar logout={logout} />
     <button style={{ margin: '11px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
     
