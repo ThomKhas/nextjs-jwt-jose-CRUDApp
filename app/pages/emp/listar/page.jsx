@@ -89,13 +89,13 @@ function DataListPage() {
 
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', minWidth: '155vh'  }}>
     <Navbar logout={logout} />  
       <button className="btn btn-primary" onClick={handleRedirecttoRRHH} style={{ margin: '11px' }}>Volver</button> 
     {successMessage && <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: 'green', padding: 10, borderRadius: 5, color: 'white' }}>{successMessage}</div>}
     <h1 style={{ margin: '11px', color:'black' }}>Información Personal</h1>
 
-    <table style={{ margin: '11px', textAlign: 'center' }} className="table">
+    <table style={{ textAlign: 'center' }} className="table">
       <thead>
         <tr style={{ borderBottom: '1px solid black' }}>
           <th scope="col">Nombre completo</th>

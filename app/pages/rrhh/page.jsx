@@ -74,7 +74,7 @@ function RrhhPage() {
               <h2 style={{marginTop: '30px'}}>Opciones</h2>
               <div style={{ marginTop: '10px' }}>
                 <button className="btn btn-success" style={{ marginRight:'10px'}} onClick={goToViewPage}>
-                  Ver Perfil
+                  Ver Usuarios
                 </button>
                 <button className="btn btn-success" onClick={goToCreatePage}>
                   Crear Usuario
