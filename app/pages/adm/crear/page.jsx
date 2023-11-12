@@ -184,13 +184,13 @@ function CreatePage() {
     <Navbar logout={logout} />
     <button style={{ margin: '11px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
     
-            <h1 style={{color: 'black'}}>Crear nuevo usuario</h1>
+            <h1 style={{color: 'black', marginLeft:'10px'}}>Crear nuevo usuario</h1>
                 
                 <form onSubmit={handleSubmit} style={{color:'black'}}>
-                    <div class='container'>
-                      <div class='row align-items-start'>
+                    <div class='container' style={{marginTop:'20px'}}>
+                      <div class='row align-items-start justify-items-center'>
 
-                        <div class="col-3">
+                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos Personales</h3><br />
                           <label className="form-label">
                             Nombre completo:
@@ -232,7 +232,8 @@ function CreatePage() {
                             <input className="form-control" type="text" name="phone" value={form.phone} onChange={handleChange} />
                           </label>
                         </div>
-                        <div class="col-3">
+
+                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos Laborales</h3><br />
                           <label className="form-label">
                             Empleo:
@@ -264,7 +265,8 @@ function CreatePage() {
                             </select>
                           </label><br />
                         </div>
-                        <div class="col-3">
+                        
+                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
                         <h3 style={{color: 'black'}}>Datos de Contactos</h3><br />
                         <label className="form-label">
                           Nombre de contacto de emergencia:
@@ -280,7 +282,7 @@ function CreatePage() {
                         </label>
                         </div><br />
 
-                        <div class="col-3">
+                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos de Cargas</h3><br />
                           <label className="form-label">
                             Nombre de la Carga:
@@ -309,7 +311,7 @@ function CreatePage() {
                               />
                               {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
                           </label><br />
-                          <button style={{ marginTop:'40px' }} className="btn btn-primary btn-lg">Registrar</button>
+                          <button style={{ marginTop:'20px', marginBottom:'40px'}} className="btn btn-primary btn-lg">Registrar</button>
                         </div>
                     </div>
                   </div>
