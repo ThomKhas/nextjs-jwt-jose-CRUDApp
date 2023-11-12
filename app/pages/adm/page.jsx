@@ -13,7 +13,7 @@ function Navbar({ logout }) {
           className="img-fluid"
           src="/src/minilogo.png"
           alt="logo para btn"
-          width={190}
+          width={255.9}
           height={130}
         />
         <button className="btn btn-primary" type="submit" onClick={logout}>
@@ -62,40 +62,39 @@ function AdmPage() {
 
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
-    <Navbar logout={logout} />
-    <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-6" style={{ backgroundColor: '#DBD7D7', padding: '50px' }}>
-            <div style={{ textAlign: 'left', marginLeft: '250px' }}>
-              <h1 style={{ textAlign: 'left', marginTop: '200px', color: 'black' }}>PERFIL DE ADMINISTRADOR</h1>
-              <h4 style={{ textAlign: 'left', color: 'black' }}>
-                Bienvenido, {user.full_name}
-                <br /> Por favor seleccione una de las opciones para continuar.
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', overflow: 'hidden' }} className="d-flex flex-column">
+      <Navbar logout={logout} />
+        <div className="row flex-grow-1">
+        <div className="col-lg-6 d-flex align-items-center justify-content-center" style={{ backgroundColor: '#1CA6F5', textAlign: 'center'}}>
+            <div>
+              <h1>PERFIL DE ADMINISTRADOR</h1>
+              <h4>Bienvenido, {user.full_name}
+             <br/>Por favor seleccione una de las opciones para continuar.
               </h4>
-              <h2 style={{ textAlign: 'left', marginTop: '70px', color: 'black'}}>Opciones</h2>
+              <h2 style={{marginTop: '30px'}}>Opciones</h2>
               <div style={{ marginTop: '10px' }}>
-                <button className="btn btn-success" onClick={goToViewPage} style= {{marginRight: '10px'}}>
-                  Ver Usuarios
+                <button className="btn btn-success" style={{ marginRight:'10px'}} onClick={goToViewPage}>
+                  Ver Perfil
                 </button>
                 <button className="btn btn-success" onClick={goToCreatePage}>
                   Crear Usuario
                 </button>
               </div>
             </div>
-          </div>
-          <div className="col-lg-6" style={{ backgroundColor: '#DBD7D7', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ marginTop: '120px', marginRight: '190px' }}>
+        </div> 
+        <div className="col-lg-6 d-flex align-items-center" 
+          style={{ backgroundColor: '#FFFFFF'}}>
+            <div>
               <Image
-                src="/src/logoPage.png"
-                alt="Ejemplo de imagen"
-                width={940}
-                height={505}
+                src="/src/oficiallogo.png"
+                alt="logo principal yuri"
+                className="img-fluid"
+                width={1000}
+                height={1000}
               />
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

@@ -6,6 +6,27 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
+function Navbar({ logout }) {
+  return (
+    <nav className="navbar bg-body-tertiary">
+      <div className="container-fluid">
+        <Link href={'/'}>
+          <img
+            className="img-fluid"
+            src="/src/minilogo.png"
+            alt="logo para btn"
+            width={255.9}
+            height={130}
+          />
+        </Link>
+        <button className="btn btn-primary" type="submit" style={{visibility: 'hidden'}} onClick={logout}>
+          Salir
+        </button>
+      </div>
+    </nav>
+  );
+}
+
 function LoginPage() {
   const [credentials, setCredentials] = useState({
     rut: "",
@@ -40,33 +61,19 @@ function LoginPage() {
 
   return (
     <div>
-      <nav className="navbar bg-body-tertiary">
-        <div className="container-fluid">
-        <Link href="/">
-          <Image className="img-fluid" 
-          src="/src/minilogo.png"
-          alt="logo para btn"
-          width={190}
-          height={130}
-          priority={true}
-          style={{ width: "auto", height: "auto" }}/>
-        </Link>
-        <button className="btn btn-primary" type="submit" style={{ visibility: 'hidden', pointerEvents: 'none' }}>Ingresar</button>
-        </div>
-      </nav>
+      <Navbar />
     <div style={{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100vh',
-      backgroundColor: '#999999',
+      height: '94.2vh',
+      backgroundColor: '#DEDEDE',
     }}>
+    <div style={{ backgroundColor: '#D3D3D3', padding: '50px', borderRadius: '10px', textAlign: 'center', boxSizing: 'border-box' }}>
+      <form onSubmit={handleSubmit}  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
-
-    <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', textAlign: 'center' }}>
-      <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-          <label className="form-label"  style={{ color: 'black' }}>RUT</label>
+          <h1 style={{ width: '100%' }}>INGRESE SUS DATOS</h1>
+          <label className="form-label" style={{ color: 'black' }}>RUT</label>
               <input className="form-control"
                 type="text"
                 placeholder="11111111-1"
@@ -76,22 +83,23 @@ function LoginPage() {
                     rut: e.target.value,
                   })
                 }
+                style={{ width: '60%' }}
               />
-      </div>     
-      <div className="mb-3">  
-      <label className="form-label"  style={{ color: 'black' }}>Contraseña</label>
-            <input className="form-control"
-              type="password"
-              placeholder="********"
-              onChange={(e) =>
-                setCredentials({
-                  ...credentials,
-                  password: e.target.value,
-                })
-              }
-            />
-        </div> 
-        <button className="btn btn-primary">Ingresar</button>
+           
+          <label className="form-label"  style={{ color: 'black' }}>Contraseña</label>
+              <input className="form-control"
+                type="password"
+                placeholder="********"
+                onChange={(e) =>
+                  setCredentials({
+                    ...credentials,
+                    password: e.target.value,
+                  })
+                }
+                style={{ width: '60%', marginBottom: '20px' }}
+              />
+
+          <button className="btn btn-primary" >Ingresar</button>
       </form>
     </div>
     </div>

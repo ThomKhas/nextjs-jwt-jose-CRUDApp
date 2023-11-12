@@ -14,7 +14,7 @@ function Navbar({ logout }) {
           className="img-fluid"
           src="/src/minilogo.png"
           alt="logo para btn"
-          width={190}
+          width={255.9}
           height={130}
         />
         <button className="btn btn-primary" type="submit" onClick={logout}>
@@ -115,35 +115,37 @@ function DataListPage() {
   };
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', minWidth: '115vh' }}>
     <Navbar logout={logout} /> 
     <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleRedirecttoADMIN}>Volver</button><br/>  
     <h2 style={{ margin: '11px', color: 'black' }}>Filtros</h2>
-      <div style={{ display: 'flex', gap: '10px',margin: '11px' }}>
-      <select className="form-select" value={filters.sex} onChange={(e) => handleFilterChange('sex', e.target.value)} style={{ width: '180px' }}>
-        <option value="">- Seleccione sexo -</option>
-        <option value="M">M</option>
-        <option value="F">F</option>
-      </select>
-      <select className="form-select" value={filters.area} onChange={(e) => handleFilterChange('area', e.target.value)} style={{ width: '180px' }}>
-        <option value="">- Seleccione área -</option>
-        <option value="Administracion">Administración</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Bodega">Bodega</option>
-      </select>
-      <select className="form-select" value={filters.empleo} onChange={(e) => handleFilterChange('empleo', e.target.value)} style={{ width: '206px' }}>
-        <option value="">- Seleccione empleo -</option>
-        <option value="Administrador">Administrador</option>
-        <option value="Ejecutivo">Ejecutivo</option>
-        <option value="Bodeguero">Bodeguero</option>
-        <option value="Computin">Computin</option>
-      </select></div>
-      <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleSearch}>Buscar</button>
+      <div style={{ display: 'flex', gap: '10px', margin: '11px', marginBottom: '20px' }}>
+        <select className="form-select" value={filters.sex} onChange={(e) => handleFilterChange('sex', e.target.value)} style={{marginTop:'10px', width: '180px', height:'40px' }}>
+          <option value="">- Seleccione sexo -</option>
+          <option value="M">M</option>
+          <option value="F">F</option>
+        </select>
+        <select className="form-select" value={filters.area} onChange={(e) => handleFilterChange('area', e.target.value)} style={{marginTop:'10px', width: '180px', height:'40px' }}>
+          <option value="">- Seleccione área -</option>
+          <option value="Administracion">Administración</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Bodega">Bodega</option>
+        </select>
+        <select className="form-select" value={filters.empleo} onChange={(e) => handleFilterChange('empleo', e.target.value)} style={{marginTop:'10px', width: '206px', height:'40px' }}>
+          <option value="">- Seleccione empleo -</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Ejecutivo">Ejecutivo</option>
+          <option value="Bodeguero">Bodeguero</option>
+          <option value="Computin">Computin</option>
+        </select>
+        <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleSearch}>Buscar</button>
+      </div>
+      
 
     {successMessage && <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: 'green', padding: 10, borderRadius: 5, color: 'white' }}>{successMessage}</div>}
     <h1 style={{ margin: '11px', color: 'black' }}>Lista de Usuarios</h1>
 
-    <table style={{ margin: '11px', textAlign: 'center' }} className="table">
+    <table style={{ textAlign: 'center' }} className="table">
       <thead>
         <tr style={{ borderBottom: '1px solid black' }}>
           <th scope="col">Nombre completo</th>

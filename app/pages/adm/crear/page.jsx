@@ -17,7 +17,7 @@ function Navbar({ logout }) {
           className="img-fluid"
           src="/src/minilogo.png"
           alt="logo para btn"
-          width={190}
+          width={255.9}
           height={130}
         />
         <button className="btn btn-primary" type="submit" onClick={logout}>

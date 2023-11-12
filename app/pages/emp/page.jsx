@@ -14,7 +14,7 @@ function Navbar({ logout }) {
           className="img-fluid"
           src="/src/minilogo.png"
           alt="logo para btn"
-          width={190}
+          width={255.9}
           height={130}
         />
         <button className="btn btn-primary" type="submit" onClick={logout}>
@@ -58,7 +58,7 @@ function EmpPage() {
   };
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }} className="d-flex flex-column">
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', overflow: 'hidden' }} className="d-flex flex-column">
       <Navbar logout={logout} />
         <div className="row flex-grow-1">
         <div className="col-lg-6 d-flex align-items-center justify-content-center" style={{ backgroundColor: '#1CA6F5', textAlign: 'center'}}>
