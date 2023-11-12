@@ -65,7 +65,7 @@ function AdmPage() {
     <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', overflow: 'hidden' }} className="d-flex flex-column">
       <Navbar logout={logout} />
         <div className="row flex-grow-1">
-        <div className="col-lg-6 d-flex align-items-center justify-content-center" style={{ backgroundColor: '#1CA6F5', textAlign: 'center'}}>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center" style={{ backgroundColor: '#1A2781', textAlign: 'center'}}>
             <div>
               <h1>PERFIL DE ADMINISTRADOR</h1>
               <h4>Bienvenido, {user.full_name}
