@@ -180,13 +180,13 @@ function CreatePage() {
   };
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', color:'black' }}>
     <Navbar logout={logout} />
     <button style={{ margin: '11px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
     
             <h1 className='custom-h1'>Crear nuevo usuario</h1>
                 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} style={{color:'black'}}>
                     <div class='container'>
                       <div class='row align-items-start'>
 
