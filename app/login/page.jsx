@@ -43,11 +43,13 @@ function LoginPage() {
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid">
         <Link href="/">
-        <Image className="img-fluid" 
-        src="/src/minilogo.png"
-        alt="logo para btn"
-        width={190}
-        height={130}/>
+          <Image className="img-fluid" 
+          src="/src/minilogo.png"
+          alt="logo para btn"
+          width={190}
+          height={130}
+          priority={true}
+          style={{ width: "auto", height: "auto" }}/>
         </Link>
         <button className="btn btn-primary" type="submit" style={{ visibility: 'hidden', pointerEvents: 'none' }}>Ingresar</button>
         </div>
@@ -63,9 +65,9 @@ function LoginPage() {
 
     <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', textAlign: 'center' }}>
       <form onSubmit={handleSubmit}>
-      <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"  style={{ color: 'black' }}>RUT</label>
-              <input class="form-control"
+      <div className="mb-3">
+          <label className="form-label"  style={{ color: 'black' }}>RUT</label>
+              <input className="form-control"
                 type="text"
                 placeholder="11111111-1"
                 onChange={(e) =>
@@ -76,9 +78,9 @@ function LoginPage() {
                 }
               />
       </div>     
-      <div class="mb-3">  
-      <label for="exampleInputPassword1" class="form-label"  style={{ color: 'black' }}>Contraseña</label>
-            <input class="form-control"
+      <div className="mb-3">  
+      <label className="form-label"  style={{ color: 'black' }}>Contraseña</label>
+            <input className="form-control"
               type="password"
               placeholder="********"
               onChange={(e) =>

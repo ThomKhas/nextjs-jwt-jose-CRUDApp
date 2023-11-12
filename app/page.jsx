@@ -15,10 +15,12 @@ function HomePage() {
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid">
         <Image className="img-fluid" 
-        src="/src/minilogo.png"
-        alt="logo para btn"
-        width={190}
-        height={130}/>
+          src="/src/minilogo.png"
+          alt="logo para btn"
+          width={190}
+          height={130}
+          priority={true}
+          style={{ width: "auto", height: "auto" }}/>
             <button className="btn btn-primary" type="submit" onClick={handleRedirect}>Ingresar</button>
         </div>
       </nav>
