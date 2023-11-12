@@ -184,14 +184,14 @@ function CreatePage() {
     <Navbar logout={logout} />
     <button style={{ margin: '11px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
     
-            <h1 className='custom-h1'>Crear nuevo usuario</h1>
+            <h1 style={{color: 'black'}}>Crear nuevo usuario</h1>
                 
                 <form onSubmit={handleSubmit} style={{color:'black'}}>
                     <div class='container'>
                       <div class='row align-items-start'>
 
                         <div class="col-3">
-                          <h3 className='custom-h3'>Datos Personales</h3><br />
+                          <h3 style={{color: 'black'}}>Datos Personales</h3><br />
                           <label className="form-label">
                             Nombre completo:
                             <input className="form-control" type="text" name="full_name" value={form.full_name} onChange={handleChange} />
@@ -233,7 +233,7 @@ function CreatePage() {
                           </label>
                         </div>
                         <div class="col-3">
-                          <h3 className='custom-h3'>Datos Laborales</h3><br />
+                          <h3 style={{color: 'black'}}>Datos Laborales</h3><br />
                           <label className="form-label">
                             Empleo:
                             <input className="form-control" type="text" name="empleo" value={form.empleo} onChange={handleChange} />
@@ -265,7 +265,7 @@ function CreatePage() {
                           </label><br />
                         </div>
                         <div class="col-3">
-                        <h3 className='custom-h3'>Datos de Contactos</h3><br />
+                        <h3 style={{color: 'black'}}>Datos de Contactos</h3><br />
                         <label className="form-label">
                           Nombre de contacto de emergencia:
                           <input className="form-control" type="text" name="nom_sos" value={form.nom_sos} onChange={handleChange} />
@@ -281,7 +281,7 @@ function CreatePage() {
                         </div><br />
 
                         <div class="col-3">
-                          <h3 className='custom-h3'>Datos de Cargas</h3><br />
+                          <h3 style={{color: 'black'}}>Datos de Cargas</h3><br />
                           <label className="form-label">
                             Nombre de la Carga:
                             <input className="form-control" type="text" name="nom_carga" value={form.nom_carga} onChange={handleChange} />
