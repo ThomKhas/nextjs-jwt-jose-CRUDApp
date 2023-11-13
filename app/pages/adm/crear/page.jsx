@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';;
 import React from 'react';
 import { Button } from 'antd';
+
+
 import "../../../globals.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -187,10 +189,10 @@ function CreatePage() {
             <h1 style={{color: 'black', marginLeft:'10px'}}>Crear nuevo usuario</h1>
                 
                 <form onSubmit={handleSubmit} style={{color:'black'}}>
-                    <div class='container' style={{marginTop:'20px'}}>
-                      <div class='row align-items-start justify-items-center'>
+                  <div class='container' style={{marginTop:'20px'}}>
+                    <div class='row justify-content-center' >
 
-                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos Personales</h3><br />
                           <label className="form-label">
                             Nombre completo:
@@ -233,7 +235,7 @@ function CreatePage() {
                           </label>
                         </div>
 
-                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos Laborales</h3><br />
                           <label className="form-label">
                             Empleo:
@@ -266,7 +268,7 @@ function CreatePage() {
                           </label><br />
                         </div>
                         
-                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                         <h3 style={{color: 'black'}}>Datos de Contactos</h3><br />
                         <label className="form-label">
                           Nombre de contacto de emergencia:
@@ -282,7 +284,7 @@ function CreatePage() {
                         </label>
                         </div><br />
 
-                        <div class="col-sm-12 col-md-6 col-lg-3" style={{marginTop:'20px'}}>
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos de Cargas</h3><br />
                           <label className="form-label">
                             Nombre de la Carga:

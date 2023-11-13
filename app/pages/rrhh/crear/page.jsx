@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';;
 import React from 'react';
 import { Button } from 'antd';
+
+
 import "../../../globals.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -182,18 +184,18 @@ function CreatePage() {
 
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', color:'black' }}>
     <Navbar logout={logout} />
     <button style={{ margin: '11px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
     
-            <h1 className='custom-h1'>Crear nuevo usuario</h1>
+            <h1 style={{color: 'black', marginLeft:'10px'}}>Crear nuevo usuario</h1>
                 
-                <form onSubmit={handleSubmit}>
-                    <div class='container'>
-                      <div class='row align-items-start'>
+                <form onSubmit={handleSubmit} style={{color:'black'}}>
+                  <div class='container' style={{marginTop:'20px'}}>
+                    <div class='row justify-content-center' >
 
-                        <div class="col-3">
-                          <h3 className='custom-h3'>Datos Personales</h3><br />
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                          <h3 style={{color: 'black'}}>Datos Personales</h3><br />
                           <label className="form-label">
                             Nombre completo:
                             <input className="form-control" type="text" name="full_name" value={form.full_name} onChange={handleChange} />
@@ -234,8 +236,9 @@ function CreatePage() {
                             <input className="form-control" type="text" name="phone" value={form.phone} onChange={handleChange} />
                           </label>
                         </div>
-                        <div class="col-3">
-                          <h3 className='custom-h3'>Datos Laborales</h3><br />
+
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                          <h3 style={{color: 'black'}}>Datos Laborales</h3><br />
                           <label className="form-label">
                             Empleo:
                             <input className="form-control" type="text" name="empleo" value={form.empleo} onChange={handleChange} />
@@ -266,8 +269,9 @@ function CreatePage() {
                             </select>
                           </label><br />
                         </div>
-                        <div class="col-3">
-                        <h3 className='custom-h3'>Datos de Contactos</h3><br />
+                        
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                        <h3 style={{color: 'black'}}>Datos de Contactos</h3><br />
                         <label className="form-label">
                           Nombre de contacto de emergencia:
                           <input className="form-control" type="text" name="nom_sos" value={form.nom_sos} onChange={handleChange} />
@@ -282,8 +286,8 @@ function CreatePage() {
                         </label>
                         </div><br />
 
-                        <div class="col-3">
-                          <h3 className='custom-h3'>Datos de Cargas</h3><br />
+                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                          <h3 style={{color: 'black'}}>Datos de Cargas</h3><br />
                           <label className="form-label">
                             Nombre de la Carga:
                             <input className="form-control" type="text" name="nom_carga" value={form.nom_carga} onChange={handleChange} />
@@ -311,7 +315,7 @@ function CreatePage() {
                               />
                               {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
                           </label><br />
-                          <button style={{ marginTop:'40px' }} className="btn btn-primary btn-lg">Registrar</button>
+                          <button style={{ marginTop:'20px', marginBottom:'40px'}} className="btn btn-primary btn-lg">Registrar</button>
                         </div>
                     </div>
                   </div>

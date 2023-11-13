@@ -7,7 +7,29 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { selectData } from '../../../api/select/route_id'; // api rest
 import { updateData } from '../../../api/edit/route'; // api rest
 
+import Image from 'next/image';
+import 'bootstrap/dist/css/bootstrap.css';
+
 const queryClient = new QueryClient();
+
+function Navbar({ logout }) {
+  return (
+    <nav className="navbar bg-body-tertiary">
+      <div className="container-fluid">
+        <img
+          className="img-fluid"
+          src="/src/minilogo.png"
+          alt="logo para btn"
+          width={255.9}
+          height={130}
+        />
+        <button className="btn btn-primary" type="submit" onClick={logout}>
+          Salir
+        </button>
+      </div>
+    </nav>
+  );
+}
 
 function EditFormPage() {
   const router = useRouter();
@@ -86,85 +108,125 @@ function EditFormPage() {
   const handleRedirect = () => {
     router.push('/pages/emp/listar');
   };
+  
+  const logout = async () => {
+    try {
+      const res = await axios.get("/api/auth/logout");
+      console.log(res);
+    } catch (error) {
+      console.error(error.message);
+    }
+    router.push("/login");
+
+  };
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
-      <button type="button" onClick={handleRedirect}>Volver</button>
-      <form>
-        <label style={{color: 'black'}}>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', overflow: 'hidden' }}>
+      <Navbar logout={logout} />
+      <div>
+      <button style={{margin:'20px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
+      <h1 style={{marginLeft:'40px', color: 'black'}}>Editar Perfil</h1>
+      <div style={{marginLeft:'20px', color: 'black'}} className='row'>
+      <div className="col-lg-4 d-flex justify-content-lg-end justify-content-center">  
+      <form className='container'>
+      <div className='row'> 
+      <div className='col-6 col-md-6'>
+      <h3>Datos Personales</h3>
+        <label className="form-label" style={{color: 'black'}}>
           Nombre completo:
-          <input type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
         Sexo:
-          <select name="sex" value={formData.sex || ''} onChange={handleChange}>
+          <select className="form-select" name="sex" value={formData.sex || ''} onChange={handleChange}>
           <option value="">Selecciona</option>  
           <option value="M">M</option>
           <option value="F">F</option>
           </select>
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
           Dirección:
-          <input type="text" name="address" value={formData.address || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="address" value={formData.address || ''} onChange={handleChange} />
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
           Teléfono:
-          <input type="text" name="phone" value={formData.phone || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="phone" value={formData.phone || ''} onChange={handleChange} />
         </label>
-        <br />
-        <label style={{color: 'black'}}>
+        <br /></div>
+        <div className='col-6 col-md-6'>
+        <h3>Datos de la Carga</h3>  
+        <label className="form-label" style={{color: 'black'}}>
           Nombre de la Carga:
-          <input type="text" name="nom_carga" value={formData.nom_carga || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="nom_carga" value={formData.nom_carga || ''} onChange={handleChange} />
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
           Parentesco:
-          <input type="text" name="relation_carga" value={formData.relation_carga || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="relation_carga" value={formData.relation_carga || ''} onChange={handleChange} />
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
         Sexo de la Carga:
-          <select name="sex_carga" value={formData.sex_carga || ''} onChange={handleChange}>
+          <select className="form-select" name="sex_carga" value={formData.sex_carga || ''} onChange={handleChange}>
           <option value="">Selecciona</option>  
           <option value="M">M</option>
           <option value="F">F</option>
           </select>
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
           RUT de la Carga:
-          <input type="text" name="rut_carga" placeholder='RUT sin puntos, con guión' value={formData.rut_carga} onChange={handleChange0} />
+          <input className="form-control" type="text" name="rut_carga" placeholder='RUT sin puntos, con guión' value={formData.rut_carga} onChange={handleChange0} />
         </label>
         {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
-        <label style={{color: 'black'}}>
+        </div>
+        <div className='col col-sm-12'>
+        <h3 style={{marginTop: '20px'}}>Datos de Contacto</h3>  
+        <label className="form-label" style={{color: 'black'}}>
           Nombre del Contacto:
-          <input type="text" name="nom_sos" value={formData.nom_sos || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="nom_sos" value={formData.nom_sos || ''} onChange={handleChange} />
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
           Número del Contacto:
-          <input type="text" name="phone_sos" value={formData.phone_sos || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="phone_sos" value={formData.phone_sos || ''} onChange={handleChange} />
         </label>
         <br />
-        <label style={{color: 'black'}}>
+        <label className="form-label" style={{color: 'black'}}>
           Relacion del Contacto:
-          <input type="text" name="relation_sos" value={formData.relation_sos || ''} onChange={handleChange} />
+          <input className="form-control" type="text" name="relation_sos" value={formData.relation_sos || ''} onChange={handleChange} />
         </label>
         <br />
-        <button type="button" onClick={handleUpdate}>Guardar</button>
+        <button style={{marginTop:'20px'}} type="button" className="btn btn-primary" onClick={handleUpdate}>Guardar</button>
+        </div>
+        </div> 
       </form>
+      </div>
+      <div className="col-lg-8 d-flex align-items-center justify-content-center">
+          <div>
+            <Image
+              src="/src/logoEdit.png"
+              alt="logo principal yuri"
+              className="img-fluid"
+              width={1000}
+              height={1000}
+              style={{margin: '20px'}}
+           />
+        </div>
+      </div>
+      </div>
+      </div>
     </div>
   );
-  
 }
 
 export default function App() {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <EditFormPage />
-      </QueryClientProvider>
-    );
-  }
+  return (
+    <QueryClientProvider client={queryClient}>
+      <EditFormPage />
+    </QueryClientProvider>
+  );
+}

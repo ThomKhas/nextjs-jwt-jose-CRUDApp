@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { selectData } from '../../../api/select/route_id'; // api rest
 import { updateData } from '../../../api/edit/route'; // api rest
 
+import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const queryClient = new QueryClient();
@@ -130,46 +131,61 @@ function EditFormPage() {
     <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
       <Navbar logout={logout} />
       <div style={{margin: '20px'}}>
-        <button className="btn btn-primary" onClick={handleRedirect}>Volver</button>
-        <h1 style={{margin:'20px', color: 'black'}}>Editar Usuario</h1>
-        <form style={{marginLeft:'20px'}}>
-          <label className="form-label" style={{color: 'black'}}>
-              Nombre completo:
-              <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
-            </label>
-            <br />
-          <label className="form-label" style={{color: 'black'}}>
-              RUT:
-              <input className="form-control" type="text" name="rut" placeholder='RUT sin puntos, con guión' value={formData.rut} onChange={handleChange0} />
-          </label>
-            {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
-          <label className="form-label" style={{color: 'black'}}>
-            Sexo:
-            <select className="form-select" name="sex" value={formData.sex || ''} onChange={handleChange}>
-            <option value="">Selecciona</option>  
-            <option value="M">M</option>
-            <option value="F">F</option>
-            </select>
-          </label>
-            <br />
-          <label className="form-label" style={{color: 'black'}}>
-            Dirección:
-            <input className="form-control" type="text" name="address" value={formData.address || ''} onChange={handleChange} />
-          </label>
-            <br />
-          <label className="form-label" style={{color: 'black'}}>
-            Rol:
-            <select className="form-select" name="rol_id" value={formData.rol_id || ''} onChange={handleChange}>
-              <option value="">Selecciona</option>
-              <option value={1}>Admin</option>
-              <option value={2}>RRHH</option>
-              <option value={3}>Empleado</option>
-            </select>
-          </label><br />
-          <button style={{marginTop:'20px'}} type="button" className="btn btn-primary" onClick={handleUpdate}>Guardar</button>
-        </form>
+      <button className="btn btn-primary" onClick={handleRedirect}>Volver</button>
+      <div className='row'>            
+              <div className="col-lg-4 d-flex align-items-center justify-content-lg-end justify-content-center">
+                  <form>
+                    <h1 style={{margin:'20px', color: 'black'}}>Editar Usuario</h1>
+                    <label className="form-label" style={{color: 'black'}}>
+                        Nombre completo:
+                        <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
+                      </label>
+                      <br />
+                    <label className="form-label" style={{color: 'black'}}>
+                        RUT:
+                        <input className="form-control" type="text" name="rut" placeholder='RUT sin puntos, con guión' value={formData.rut} onChange={handleChange0} />
+                    </label>
+                      {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
+                    <label className="form-label" style={{color: 'black'}}>
+                      Sexo:
+                      <select className="form-select" name="sex" value={formData.sex || ''} onChange={handleChange}>
+                      <option value="">Selecciona</option>  
+                      <option value="M">M</option>
+                      <option value="F">F</option>
+                      </select>
+                    </label>
+                      <br />
+                    <label className="form-label" style={{color: 'black'}}>
+                      Dirección:
+                      <input className="form-control" type="text" name="address" value={formData.address || ''} onChange={handleChange} />
+                    </label>
+                      <br />
+                    <label className="form-label" style={{color: 'black'}}>
+                      Rol:
+                      <select className="form-select" name="rol_id" value={formData.rol_id || ''} onChange={handleChange}>
+                        <option value="">Selecciona</option>
+                        <option value={1}>Admin</option>
+                        <option value={2}>RRHH</option>
+                        <option value={3}>Empleado</option>
+                      </select>
+                    </label><br />
+                    <button style={{marginTop:'20px'}} type="button" className="btn btn-primary" onClick={handleUpdate}>Guardar</button>
+                  </form>
+              </div>
+              <div className="col-lg-8 d-flex align-items-center justify-content-center">
+                <div>
+                  <Image
+                    src="/src/logoEdit.png"
+                    alt="logo principal yuri"
+                    className="img-fluid"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
+              </div>
+          </div>  
       </div>
-    </div>
+      </div>
   );
   
 }
