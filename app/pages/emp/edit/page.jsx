@@ -91,65 +91,65 @@ function EditFormPage() {
     <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
       <button type="button" onClick={handleRedirect}>Volver</button>
       <form>
-        <label>
+        <label style={{color: 'black'}}>
           Nombre completo:
           <input type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
         Sexo:
-        <select name="sex" value={formData.sex || ''} onChange={handleChange}>
-        <option value="">Selecciona</option>  
-        <option value="M">M</option>
-        <option value="F">F</option>
-      </select>
-      </label>
+          <select name="sex" value={formData.sex || ''} onChange={handleChange}>
+          <option value="">Selecciona</option>  
+          <option value="M">M</option>
+          <option value="F">F</option>
+          </select>
+        </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
           Dirección:
           <input type="text" name="address" value={formData.address || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
           Teléfono:
           <input type="text" name="phone" value={formData.phone || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
           Nombre de la Carga:
           <input type="text" name="nom_carga" value={formData.nom_carga || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
           Parentesco:
           <input type="text" name="relation_carga" value={formData.relation_carga || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
         Sexo de la Carga:
-        <select name="sex_carga" value={formData.sex_carga || ''} onChange={handleChange}>
-        <option value="">Selecciona</option>  
-        <option value="M">M</option>
-        <option value="F">F</option>
-      </select>
-      </label>
+          <select name="sex_carga" value={formData.sex_carga || ''} onChange={handleChange}>
+          <option value="">Selecciona</option>  
+          <option value="M">M</option>
+          <option value="F">F</option>
+          </select>
+        </label>
         <br />
-<label>
+        <label style={{color: 'black'}}>
           RUT de la Carga:
           <input type="text" name="rut_carga" placeholder='RUT sin puntos, con guión' value={formData.rut_carga} onChange={handleChange0} />
         </label>
         {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
-        <label>
+        <label style={{color: 'black'}}>
           Nombre del Contacto:
           <input type="text" name="nom_sos" value={formData.nom_sos || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
           Número del Contacto:
           <input type="text" name="phone_sos" value={formData.phone_sos || ''} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        <label style={{color: 'black'}}>
           Relacion del Contacto:
           <input type="text" name="relation_sos" value={formData.relation_sos || ''} onChange={handleChange} />
         </label>
