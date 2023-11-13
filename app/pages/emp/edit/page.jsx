@@ -131,7 +131,7 @@ function EditFormPage() {
       <form className='container'>
       <div className='row'> 
       <div className='col-6 col-md-6'>
-      <h3>Datos Personales</h3>
+      <h3 style={{ color: 'black'}}>Datos Personales</h3>
         <label className="form-label" style={{color: 'black'}}>
           Nombre completo:
           <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
@@ -157,7 +157,7 @@ function EditFormPage() {
         </label>
         <br /></div>
         <div className='col-6 col-md-6'>
-        <h3>Datos de la Carga</h3>  
+        <h3 style={{ color: 'black'}}>Datos de la Carga</h3>  
         <label className="form-label" style={{color: 'black'}}>
           Nombre de la Carga:
           <input className="form-control" type="text" name="nom_carga" value={formData.nom_carga || ''} onChange={handleChange} />
@@ -184,7 +184,7 @@ function EditFormPage() {
         {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
         </div>
         <div className='col col-sm-12'>
-        <h3 style={{marginTop: '20px'}}>Datos de Contacto</h3>  
+        <h3 style={{marginTop: '20px', color: 'black'}}>Datos de Contacto</h3>  
         <label className="form-label" style={{color: 'black'}}>
           Nombre del Contacto:
           <input className="form-control" type="text" name="nom_sos" value={formData.nom_sos || ''} onChange={handleChange} />
