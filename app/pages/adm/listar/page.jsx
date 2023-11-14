@@ -146,7 +146,7 @@ function DataListPage() {
     <h1 style={{ margin: '11px', color: 'black' }}>Lista de Usuarios</h1>
 
     <table style={{ textAlign: 'center' }} className="table table-responsive">
-      <thead class='bg-primary'>
+      <thead>
         <tr style={{ borderBottom: '1px solid black' }}>
           <th scope="col">Nombre completo</th>
           <th scope="col">RUT</th>
@@ -156,7 +156,6 @@ function DataListPage() {
           <th scope="col">Area</th>
           <th scope="col">Empleo</th>
           <th scope="col">Acciones</th>
-          {/* Agrega el resto de los encabezados de las columnas aquí */}
         </tr>
       </thead>
       <tbody>
