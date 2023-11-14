@@ -126,94 +126,93 @@ function EditFormPage() {
       <div>
       <button style={{margin:'20px'}} className="btn btn-primary" onClick={handleRedirect}>Volver</button>
       <h1 style={{marginLeft:'40px', color: 'black'}}>Editar Perfil</h1>
-      <div style={{marginLeft:'20px', color: 'black'}} className='row'>
+      <div className='row' style={{ color: 'black'}} >
       <div className="col-lg-4 d-flex justify-content-lg-end justify-content-center">  
-      <form className='container'>
-      <div className='row'> 
-      <div className='col-6 col-md-6'>
-      <h3 style={{ color: 'black'}}>Datos Personales</h3>
-        <label className="form-label" style={{color: 'black'}}>
-          Nombre completo:
-          <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-        Sexo:
-          <select className="form-select" name="sex" value={formData.sex || ''} onChange={handleChange}>
-          <option value="">Selecciona</option>  
-          <option value="M">M</option>
-          <option value="F">F</option>
-          </select>
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-          Dirección:
-          <input className="form-control" type="text" name="address" value={formData.address || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-          Teléfono:
-          <input className="form-control" type="text" name="phone" value={formData.phone || ''} onChange={handleChange} />
-        </label>
-        <br /></div>
-        <div className='col-6 col-md-6'>
-        <h3 style={{ color: 'black'}}>Datos de la Carga</h3>  
-        <label className="form-label" style={{color: 'black'}}>
-          Nombre de la Carga:
-          <input className="form-control" type="text" name="nom_carga" value={formData.nom_carga || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-          Parentesco:
-          <input className="form-control" type="text" name="relation_carga" value={formData.relation_carga || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-        Sexo de la Carga:
-          <select className="form-select" name="sex_carga" value={formData.sex_carga || ''} onChange={handleChange}>
-          <option value="">Selecciona</option>  
-          <option value="M">M</option>
-          <option value="F">F</option>
-          </select>
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-          RUT de la Carga:
-          <input className="form-control" type="text" name="rut_carga" placeholder='RUT sin puntos, con guión' value={formData.rut_carga} onChange={handleChange0} />
-        </label>
-        {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
-        </div>
-        <div className='col col-sm-12'>
-        <h3 style={{marginTop: '20px', color: 'black'}}>Datos de Contacto</h3>  
-        <label className="form-label" style={{color: 'black'}}>
-          Nombre del Contacto:
-          <input className="form-control" type="text" name="nom_sos" value={formData.nom_sos || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-          Número del Contacto:
-          <input className="form-control" type="text" name="phone_sos" value={formData.phone_sos || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <label className="form-label" style={{color: 'black'}}>
-          Relacion del Contacto:
-          <input className="form-control" type="text" name="relation_sos" value={formData.relation_sos || ''} onChange={handleChange} />
-        </label>
-        <br />
-        <button style={{marginTop:'20px'}} type="button" className="btn btn-primary" onClick={handleUpdate}>Guardar</button>
-        </div>
+      <form className='container' style={{marginLeft:'30px'}}>
+        <div className='row'> 
+          <div className='col-12 col-md-6'>
+        <h3 style={{ color: 'black'}}>Datos Personales</h3>
+          <label className="form-label" style={{color: 'black'}}>
+            Nombre completo:
+            <input className="form-control" type="text" name="full_name" value={formData.full_name || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+          Sexo:
+            <select className="form-select" name="sex" value={formData.sex || ''} onChange={handleChange}>
+            <option value="">Selecciona</option>  
+            <option value="M">M</option>
+            <option value="F">F</option>
+            </select>
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+            Dirección:
+            <input className="form-control" type="text" name="address" value={formData.address || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+            Teléfono:
+            <input className="form-control" type="text" name="phone" value={formData.phone || ''} onChange={handleChange} />
+          </label>
+          <br /></div>
+          <div className='col-12 col-md-6'>
+          <h3 style={{ color: 'black'}}>Datos de la Carga</h3>  
+          <label className="form-label" style={{color: 'black'}}>
+            Nombre de la Carga:
+            <input className="form-control" type="text" name="nom_carga" value={formData.nom_carga || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+            Parentesco:
+            <input className="form-control" type="text" name="relation_carga" value={formData.relation_carga || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+          Sexo de la Carga:
+            <select className="form-select" name="sex_carga" value={formData.sex_carga || ''} onChange={handleChange}>
+            <option value="">Selecciona</option>  
+            <option value="M">M</option>
+            <option value="F">F</option>
+            </select>
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+            RUT de la Carga:
+            <input className="form-control" type="text" name="rut_carga" placeholder='RUT sin puntos, con guión' value={formData.rut_carga} onChange={handleChange0} />
+          </label>
+          {rutError && <div style={{ color: 'red' }}>{rutError}</div>}<br />
+          </div>
+          <div className='col-12'>
+          <h3 style={{marginTop: '20px', color: 'black'}}>Datos de Contacto</h3>  
+          <label className="form-label" style={{color: 'black'}}>
+            Nombre del Contacto:
+            <input className="form-control" type="text" name="nom_sos" value={formData.nom_sos || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+            Número del Contacto:
+            <input className="form-control" type="text" name="phone_sos" value={formData.phone_sos || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <label className="form-label" style={{color: 'black'}}>
+            Relacion del Contacto:
+            <input className="form-control" type="text" name="relation_sos" value={formData.relation_sos || ''} onChange={handleChange} />
+          </label>
+          <br />
+          <button style={{marginTop:'20px'}} type="button" className="btn btn-primary" onClick={handleUpdate}>Guardar</button>
+          </div>
         </div> 
       </form>
       </div>
-      <div className="col-lg-8 d-flex align-items-center justify-content-center">
-          <div>
+      <div className="col-lg-8 d-flex align-items-center justify-content-center" >
+          <div className="mx-auto">
             <Image
               src="/src/logoEdit.png"
               alt="logo principal yuri"
               className="img-fluid"
               width={1000}
               height={1000}
-              style={{margin: '20px'}}
            />
         </div>
       </div>
