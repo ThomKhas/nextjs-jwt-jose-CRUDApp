@@ -73,10 +73,10 @@ function AdmPage() {
               </h4>
               <h2 style={{marginTop: '30px'}}>Opciones</h2>
               <div style={{ marginTop: '10px' }}>
-                <button className="btn btn-success" style={{ marginRight:'10px'}} onClick={goToViewPage}>
+                <button className="btn btn-light" style={{ marginRight:'10px', color: 'black'}} onClick={goToViewPage}>
                   Ver Usuarios
                 </button>
-                <button className="btn btn-success" onClick={goToCreatePage}>
+                <button className="btn btn-light" style={{ color: 'black'}} onClick={goToCreatePage}>
                   Crear Usuario
                 </button>
               </div>
