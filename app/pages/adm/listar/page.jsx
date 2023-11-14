@@ -115,7 +115,7 @@ function DataListPage() {
   };
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', minWidth: '115vh' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh'}}>
     <Navbar logout={logout} /> 
     <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleRedirecttoADMIN}>Volver</button><br/>  
     <h2 style={{ margin: '11px', color: 'black' }}>Filtros</h2>
@@ -145,7 +145,7 @@ function DataListPage() {
     {successMessage && <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: 'green', padding: 10, borderRadius: 5, color: 'white' }}>{successMessage}</div>}
     <h1 style={{ margin: '11px', color: 'black' }}>Lista de Usuarios</h1>
 
-    <table style={{ textAlign: 'center' }} className="table">
+    <table style={{ textAlign: 'center' }} className="table table-responsive">
       <thead>
         <tr style={{ borderBottom: '1px solid black' }}>
           <th scope="col">Nombre completo</th>
