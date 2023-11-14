@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import 'bootstrap/dist/css/bootstrap.css';
-import Image from 'next/image';
 import Link from 'next/link';
 
 function Navbar({ logout }) {
