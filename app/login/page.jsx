@@ -69,7 +69,7 @@ function LoginPage() {
       height: '94.2vh',
       backgroundColor: '#DEDEDE',
     }}>
-    <div style={{ backgroundColor: '#D3D3D3', padding: '50px', borderRadius: '10px', textAlign: 'center', boxSizing: 'border-box' }}>
+    <div style={{ backgroundColor: '#D3D3D3', padding: '30px', borderRadius: '10px', textAlign: 'center', boxSizing: 'border-box' }}>
       <form onSubmit={handleSubmit}  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
           <h1 style={{ width: '100%', color: 'black' }}>INGRESE SUS DATOS</h1>

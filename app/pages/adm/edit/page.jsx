@@ -130,8 +130,8 @@ function EditFormPage() {
   return (
     <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh' }}>
       <Navbar logout={logout} />
-      <div style={{margin: '20px'}}>
-      <button className="btn btn-primary" onClick={handleRedirect}>Volver</button>
+      <div>
+      <button className="btn btn-primary" onClick={handleRedirect} style={{margin:'20px'}}>Volver</button>
       <div className='row'>            
               <div className="col-lg-4 d-flex align-items-center justify-content-lg-end justify-content-center">
                   <form>
