@@ -146,7 +146,7 @@ function DataListPage() {
     <h1 style={{ margin: '11px', color: 'black' }}>Lista de Usuarios</h1>
 
     <table style={{ textAlign: 'center' }} className="table table-responsive">
-      <thead>
+      <thead class='bg-primary'>
         <tr style={{ borderBottom: '1px solid black' }}>
           <th scope="col">Nombre completo</th>
           <th scope="col">RUT</th>
