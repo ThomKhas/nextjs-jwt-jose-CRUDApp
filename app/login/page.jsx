@@ -2,6 +2,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import Link from 'next/link';
 
@@ -35,26 +37,36 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/auth/login", credentials);
 
-    if (res.status === 200) {
-      // Aquí es donde manejas la redirección basada en el rol_id
-      const { rol_id } = res.data;
+    if (!credentials.rut || !credentials.password) {
+      toast.error("Rellena todos los campos");
+      return;
+    }
+    
+    try {
+      const res = await axios.post("/api/auth/login", credentials);
 
-      switch (rol_id) {
-        case 1:
-          router.push("pages/adm");
-          break;
-        case 2:
-          router.push("pages/rrhh");
-          break;
-        case 3:
-          router.push("pages/emp");
-          break;
-        default:
-          console.error("Invalid role ID");
-          break;
+      if (res.status === 200) {
+        const { rol_id } = res.data;
+
+        switch (rol_id) {
+          case 1:
+            router.push("pages/adm");
+            break;
+          case 2:
+            router.push("pages/rrhh");
+            break;
+          case 3:
+            router.push("pages/emp");
+            break;
+          default:
+            console.error("Invalid role ID");
+            break;
+        }
       }
+    } catch (error) {
+      // Mostrar mensaje de error con Toastify
+      toast.error("Rut o Contraseña inválido");
     }
   };
 
@@ -98,10 +110,12 @@ function LoginPage() {
                 style={{ width: '60%', marginBottom: '20px' }}
               />
 
+
           <button className="btn btn-primary" >Ingresar</button>
       </form>
     </div>
     </div>
+    <ToastContainer />
     </div>
   );
 }
