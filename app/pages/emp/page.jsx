@@ -70,7 +70,7 @@ function EmpPage() {
               </h4>
               <h2 style={{marginTop: '30px'}}>Opciones</h2>
               <div style={{ marginTop: '10px' }}>
-                <button className="btn btn-success" onClick={goToViewPage}>
+                <button className="btn btn-light" style={{ color: 'black'}} onClick={goToViewPage}>
                   Ver Perfil
                 </button>
               </div>
