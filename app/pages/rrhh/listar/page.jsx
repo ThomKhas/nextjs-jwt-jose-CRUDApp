@@ -78,7 +78,7 @@ function DataListPage() {
 
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '115vh', minWidth:'900px' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minWidth:'900px' }}>
     <Navbar logout={logout} />   
     <button className="btn btn-primary" onClick={handleRedirecttoRRHH} style={{ margin: '11px' }}>Volver</button> 
     {successMessage && <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: 'green', padding: 10, borderRadius: 5, color: 'white' }}>{successMessage}</div>}

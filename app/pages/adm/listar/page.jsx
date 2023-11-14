@@ -115,7 +115,7 @@ function DataListPage() {
   };
 
   return (
-    <div style={{ backgroundColor: '#DBD7D7', minHeight: '100vh', minWidth:'900px' }}>
+    <div style={{ backgroundColor: '#DBD7D7', minWidth:'900px' }}>
     <Navbar logout={logout} /> 
     <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleRedirecttoADMIN}>Volver</button><br/>  
     <h2 style={{ margin: '11px', color: 'black' }}>Filtros</h2>
