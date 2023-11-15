@@ -47,8 +47,9 @@ function LoginPage() {
 
       if (errorParam === 'access-denied' && !errorShown) {
         toast.error("Acceso Denegado");
-        
         setErrorShown(true);
+      } else if (errorParam !== 'access-denied') {
+        setErrorShown(false); // Resetear errorShown si no es un error de acceso denegado
       }
     }
   }, [errorShown, mounted]); // Ahora, el efecto solo se ejecutará cuando errorShown cambie
@@ -90,11 +91,6 @@ function LoginPage() {
     } catch (error) {
       // Mostrar mensaje de error con Toastify
       toast.error("Rut o Contraseña inválido");
-      // También puedes verificar aquí si el error proviene de un acceso denegado
-      if (error.response && error.response.status === 401) {
-        toast.error("Acceso Denegado");
-        setErrorShown(true);
-      }
     }
   };
 
