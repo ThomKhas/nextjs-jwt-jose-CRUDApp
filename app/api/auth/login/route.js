@@ -2,12 +2,12 @@ import { sign } from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-
 const supabaseUrl = "https://knxqdasxbmkqkqpxzlba.supabase.co";
 const supabaseKey = process.env.NEXT_PUBLIC_ENCRIPTADO_MD5_HEX;
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function POST(request) {
+
   const { rut, password } = await request.json();
 
   let { data: user, error } = await supabase
@@ -29,7 +29,7 @@ export async function POST(request) {
         rut: user.rut,
         rol_id: user.rol_id,
       },
-      "secret"
+      process.env.NEXT_PUBLIC_SECRET_TOKEN_SHET
     );
 
     const res = NextResponse.json({ // cambia 'response' a 'res'
@@ -38,7 +38,7 @@ export async function POST(request) {
     });
 
     res.cookies.set({
-      name: "myTokenName",
+      name: "jwtYuri",
       value: token,
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

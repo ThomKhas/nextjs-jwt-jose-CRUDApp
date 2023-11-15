@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export function GET(request) {
   const cookieStore = cookies();
-  const token = cookieStore.get("myTokenName");
+  const token = cookieStore.get("jwtYuri");
   console.log(token);
 
   if (!token) {
@@ -15,7 +15,7 @@ export function GET(request) {
   }
 
   try {
-    cookieStore.delete("myTokenName");
+    cookieStore.delete("jwtYuri");
 
     const response = NextResponse.json(
       {},

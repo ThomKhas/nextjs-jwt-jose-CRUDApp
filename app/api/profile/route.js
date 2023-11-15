@@ -5,13 +5,13 @@ import { supabase } from "../auth/login/route"; // Importa supabase desde la rut
 
 export async function GET(request) {
   const cookieStore = cookies();
-  const token = cookieStore.get("myTokenName");
+  const token = cookieStore.get("jwtYuri");
 
   if (!token) {
     return res.status(401).json({ error: "Not logged in" });
   }
 
-  const { rut, rol_id } = jwt.verify(token.value, "secret");
+  const { rut, rol_id } = jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET_TOKEN_SHET);
 
   let { data: user, error } = await supabase
     .from('data_users')

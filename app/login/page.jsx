@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,11 +29,33 @@ function Navbar({ logout }) {
 }
 
 function LoginPage() {
+  const router = useRouter();
+  const [errorShown, setErrorShown] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    // Cleanup function para indicar que el componente se ha desmontado
+    return () => setMounted(false);
+  }, []);
+
+  useEffect(() => {
+    // Verificar si hay un error en la URL
+    if (mounted) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const errorParam = urlParams.get('error');
+
+      if (errorParam === 'access-denied' && !errorShown) {
+        toast.error("Acceso Denegado");
+        setErrorShown(true);
+      }
+    }
+  }, [errorShown, mounted]); // Ahora, el efecto solo se ejecutará cuando errorShown cambie
+
   const [credentials, setCredentials] = useState({
     rut: "",
     password: "",
   });
-  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +64,7 @@ function LoginPage() {
       toast.error("Rellena todos los campos");
       return;
     }
-    
+
     try {
       const res = await axios.post("/api/auth/login", credentials);
 
@@ -67,6 +89,11 @@ function LoginPage() {
     } catch (error) {
       // Mostrar mensaje de error con Toastify
       toast.error("Rut o Contraseña inválido");
+      // También puedes verificar aquí si el error proviene de un acceso denegado
+      if (error.response && error.response.status === 401) {
+        toast.error("Acceso Denegado");
+        setErrorShown(true);
+      }
     }
   };
 
