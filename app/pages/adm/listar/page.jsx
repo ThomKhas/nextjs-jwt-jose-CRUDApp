@@ -120,12 +120,12 @@ function DataListPage() {
     <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleRedirecttoADMIN}>Volver</button><br/>  
     <h2 style={{ margin: '11px', color: 'black' }}>Filtros</h2>
       <div style={{ display: 'flex', gap: '10px', margin: '11px', marginBottom: '20px' }}>
-        <select className="form-select" value={filters.sex} onChange={(e) => handleFilterChange('sex', e.target.value)} style={{marginTop:'10px', width: '180px', height:'40px' }}>
+        <select className="form-select" value={filters.sex} onChange={(e) => handleFilterChange('sex', e.target.value)} style={{marginTop:'10px', width: '190px', height:'40px' }}>
           <option value="">- Seleccione sexo -</option>
           <option value="M">M</option>
           <option value="F">F</option>
         </select>
-        <select className="form-select" value={filters.area} onChange={(e) => handleFilterChange('area', e.target.value)} style={{marginTop:'10px', width: '180px', height:'40px' }}>
+        <select className="form-select" value={filters.area} onChange={(e) => handleFilterChange('area', e.target.value)} style={{marginTop:'10px', width: '190px', height:'40px' }}>
           <option value="">- Seleccione área -</option>
           <option value="Administracion">Administración</option>
           <option value="Marketing">Marketing</option>
