@@ -47,6 +47,7 @@ function LoginPage() {
 
       if (errorParam === 'access-denied' && !errorShown) {
         toast.error("Acceso Denegado");
+        
         setErrorShown(true);
       }
     }
