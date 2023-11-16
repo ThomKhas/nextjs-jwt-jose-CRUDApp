@@ -178,7 +178,6 @@ function CreatePage() {
       console.error(error.message);
     }
     router.push("/login");
-
   };
 
   return (

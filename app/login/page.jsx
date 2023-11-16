@@ -46,6 +46,7 @@ function LoginPage() {
       const errorParam = urlParams.get('error');
 
       if (errorParam === 'access-denied' && !errorShown) {
+        logout();
         toast.error("Acceso Denegado");
         setErrorShown(true);
       } else if (errorParam !== 'access-denied') {
@@ -84,7 +85,7 @@ function LoginPage() {
             router.push("pages/emp");
             break;
           default:
-            console.error("Invalid role ID");
+            console.error("Rol ID Inválido");
             break;
         }
       }
@@ -94,15 +95,24 @@ function LoginPage() {
     }
   };
 
+  const logout = async () => {
+    try {
+      const res = await axios.get("/api/auth/logout");
+      console.log(res);
+    } catch (error) {
+      console.error(error.message);
+    }
+    router.push("/login");
+  };
+
   return (
-    <div>
+    <div style={{backgroundColor: '#DEDEDE'}}>
       <Navbar />
     <div style={{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '94.2vh',
-      backgroundColor: '#DEDEDE',
+      height: '94vh',
     }}>
     <div style={{ backgroundColor: '#D3D3D3', padding: '30px', borderRadius: '10px', textAlign: 'center', boxSizing: 'border-box' }}>
       <form onSubmit={handleSubmit}  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

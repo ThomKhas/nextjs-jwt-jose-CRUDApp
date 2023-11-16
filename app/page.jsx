@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+
 function HomePage() {
 
   const router = useRouter();
