@@ -9,9 +9,7 @@ export async function middleware(request) {
 
   if (!jwt) {
     console.log("No se encontró token JWT. Redirigiendo a /login");
-    return NextResponse.redirect(new URL("/login?error=access-denied", request.url), {
-      status: 401, // Código de estado no autorizado
-    });
+    return NextResponse.redirect(new URL("/login?error=access-denied", request.url));
   }
 
   // Tu clave secreta como una cadena
