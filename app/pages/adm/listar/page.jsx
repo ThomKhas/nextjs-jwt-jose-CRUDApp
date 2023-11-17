@@ -136,7 +136,7 @@ function DataListPage() {
           <option value="Administrador">Administrador</option>
           <option value="Ejecutivo">Ejecutivo</option>
           <option value="Bodeguero">Bodeguero</option>
-          <option value="Computin">Computin</option>
+          <option value="Marketing">Marketing</option>
         </select>
         <button className="btn btn-primary" style={{ margin: '11px' }} onClick={handleSearch}>Buscar</button>
       </div>

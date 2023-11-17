@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';;
 import React from 'react';
 import { Button } from 'antd';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import "../../../globals.css";
@@ -53,6 +55,7 @@ function CreatePage() {
 
   const [message, setMessage] = useState('');
   const [rutError, setRutError] = useState('');
+  const [rutCargaError, setRutCargaError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
@@ -61,41 +64,32 @@ function CreatePage() {
     setShowPassword(!showPassword);
   };
 
-
   const handleRedirect = () => {
     router.push('/pages/adm');
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'rut') {
-      if (!/^[0-9]{7,8}-[0-9Kk]$/.test(value)) {
-        setRutError('RUT inválido');
-      } else {
-        setRutError('');
-      }
-    }
 
     setForm((prevForm) => ({
       ...prevForm,
       [name]: value,
     }));
+
+    if (name === 'rut') {
+      validateRut(value, setRutError);
+    } else if
+    (name === 'rut_carga') {
+      validateRut(value, setRutCargaError);
+    }
   };
 
-  const handleChange0 = (e) => {
-    const { name, value } = e.target;
-    if (name === 'rut_carga') {
-      if (!/^[0-9]{7,8}-[0-9Kk]$/.test(value)) {
-        setRutError('RUT inválido');
-      } else {
-        setRutError('');
-      }
+  const validateRut = (rut, setRutError) => {
+    if (!/^[0-9]{7,8}-[0-9Kk]$/.test(rut)) {
+      setRutError('RUT inválido');
+    } else {
+      setRutError('');
     }
-
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
   };
 
   const getCurrentDateTime = () => {
@@ -119,14 +113,20 @@ function CreatePage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const isEmptyField = Object.values(form).some((value) => value === '');
     
-    
+    if (isEmptyField) {
+      toast.error('Rellene todos los campos');
+      return;
+    }
+
     try {
-      if (rutError) {
+      if (rutError || rutCargaError) {
+        toast.error('Revise los campos relacionados con el RUT');
         throw new Error('RUT inválido');
       }
       
-      // Aquí puedes agregar la lógica para enviar los datos del formulario a tu base de datos
+      
       const result = await insertData(form);
       console.log('Formulario a enviar:', form);
       console.log(result);
@@ -149,10 +149,10 @@ function CreatePage() {
         relation_carga: '',
         sex_carga: '',
         rut_carga: ''
-      });setMessage('Datos insertados correctamente');
+      });toast.success('Datos insertados correctamente');
     } catch (error) {
       console.error(error.message);
-      setMessage('Error al insertar los datos');
+      toast.error('Error al insertar los datos');
     }
   };
 
@@ -188,10 +188,10 @@ function CreatePage() {
             <h1 style={{color: 'black', marginLeft:'10px'}}>Crear nuevo usuario</h1>
                 
                 <form onSubmit={handleSubmit} style={{color:'black'}}>
-                  <div class='container' style={{marginTop:'20px'}}>
-                    <div class='row justify-content-center' >
+                  <div className='container' style={{marginTop:'20px'}}>
+                    <div className='row justify-content-center' >
 
-                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                        <div className="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos Personales</h3><br />
                           <label className="form-label">
                             Nombre completo:
@@ -218,7 +218,7 @@ function CreatePage() {
                           </label><br />
                           <label className="form-label">
                             Sexo:
-                            <select class="form-select" name="sex" value={form.sex} onChange={handleChange}>
+                            <select className="form-select" name="sex" value={form.sex} style={{width: '206px'}} onChange={handleChange}>
                               <option value="">Selecciona</option>
                               <option value="M">M</option>
                               <option value="F">F</option>
@@ -234,7 +234,7 @@ function CreatePage() {
                           </label>
                         </div>
 
-                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                        <div className="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos Laborales</h3><br />
                           <label className="form-label">
                             Empleo:
@@ -249,7 +249,7 @@ function CreatePage() {
                           </label><br />
                           <label className="form-label">
                             Área:
-                            <select class="form-select" name="area" value={form.area} onChange={handleChange}>
+                            <select className="form-select" name="area" value={form.area} onChange={handleChange} style={{width: '206px'}}>
                               <option value="">Selecciona</option>
                               <option value="Bodega">Bodega</option>
                               <option value="Administracion">Administracion</option>
@@ -258,7 +258,7 @@ function CreatePage() {
                           </label><br />
                           <label className="form-label">
                             Rol:
-                            <select class="form-select" name="rol_id" value={form.rol_id} onChange={handleChange}>
+                            <select className="form-select" name="rol_id" value={form.rol_id} onChange={handleChange} style={{width: '206px'}}>
                               <option value="">Selecciona</option>
                               <option value={1}>Admin</option>
                               <option value={2}>RRHH</option>
@@ -267,7 +267,7 @@ function CreatePage() {
                           </label><br />
                         </div>
                         
-                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                        <div className="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                         <h3 style={{color: 'black'}}>Datos de Contactos</h3><br />
                         <label className="form-label">
                           Nombre de contacto de emergencia:
@@ -278,12 +278,12 @@ function CreatePage() {
                           <input className="form-control" type="text" name="phone_sos" value={form.phone_sos} onChange={handleChange} />
                         </label><br />
                         <label className="form-label">
-                          Relación con el contacto de emergencia:
-                          <input className="form-control" type="text" name="relation_sos" value={form.relation_sos} onChange={handleChange} />
+                          Relación contacto de emergencia:
+                          <input className="form-control" type="text" name="relation_sos" value={form.relation_sos} onChange={handleChange} style={{width: '260px'}}/>
                         </label>
                         </div><br />
 
-                        <div class="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
+                        <div className="col-sm-12 col-md-6 col-lg-3 justify-content-sm-center" style={{marginTop:'20px'}}>
                           <h3 style={{color: 'black'}}>Datos de Cargas</h3><br />
                           <label className="form-label">
                             Nombre de la Carga:
@@ -295,7 +295,7 @@ function CreatePage() {
                           </label><br />
                           <label className="form-label">
                             Sexo de la Carga:
-                            <select class="form-select" name="sex_carga" value={form.sex_carga} onChange={handleChange}>
+                            <select className="form-select" name="sex_carga" value={form.sex_carga} onChange={handleChange} style={{width: '206px'}}>
                             <option value="">Selecciona</option>
                             <option value="M">M</option>
                             <option value="F">F</option>
@@ -308,9 +308,9 @@ function CreatePage() {
                                 name="rut_carga"
                                 placeholder='RUT sin puntos, con guión'
                                 value={form.rut_carga}
-                                onChange={handleChange0}
+                                onChange={handleChange}
                               />
-                              {rutError && <div style={{ color: 'red' }}>{rutError}</div>}
+                              {rutCargaError && <div style={{ color: 'red' }}>{rutCargaError}</div>}
                           </label><br />
                           <button style={{ marginTop:'20px', marginBottom:'40px'}} className="btn btn-primary btn-lg">Registrar</button>
                         </div>
@@ -318,6 +318,7 @@ function CreatePage() {
                   </div>
                 </form>
                 {message && <p>{message}</p>}
+                <ToastContainer />
       
     </div>
   );
