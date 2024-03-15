@@ -1,8 +1,7 @@
-
-/Aplicación web utilizando NextJS, Supabase y React.
-/Aplicación destinada a proyecto propuesto en la materia, para la gestión y distribución de los datos de los usuarios registrados.
-/Esta aplicación cuenta como un re-build de un repositorio anterior; en este caso, usando un lenguaje, experiencia y diseño diferentes.
-/El funcionamiento de esta aplicación queda sujeto directamente al estado de la base de datos. Debido a la inactividad de esta, por favor, si desea ver la aplicación en su totalidad, contáctese conmigo y con gusto habilitaré la página.
+Aplicación web utilizando NextJS, Supabase y React.
+Aplicación destinada a proyecto propuesto en la materia, para la gestión y distribución de los datos de los usuarios registrados.
+Esta aplicación cuenta como un re-build de un repositorio anterior; en este caso, usando un lenguaje, experiencia y diseño diferentes.
+El funcionamiento de esta aplicación queda sujeto directamente al estado de la base de datos. Debido a la inactividad de esta, por favor, si desea ver la aplicación en su totalidad, contáctese conmigo y con gusto habilitaré la página.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
